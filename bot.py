@@ -54,7 +54,6 @@ def process_account(initData):
                 'last_name': user_data.get('last_name', ''),
                 'username': user_data.get('username', ''),
                 'language_code': user_data.get('language_code', 'en'),
-                'is_premium': user_data.get('is_premium', False),
                 'allows_write_to_pm': user_data.get('allows_write_to_pm', False)
             },
             'auth_date': parsed_data.get('auth_date', ''),
