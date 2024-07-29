@@ -72,6 +72,9 @@ def process_account(initData):
         if token:
             print(f"{Fore.GREEN}====== Berhasil Mendapatkan Data ======")
 
+            # Perform daily check-in
+            perform_check_in(token)
+
             # Use the token to make an authorized GET request for asset data
             asset_url = 'https://moon.popp.club/moon/asset'
             asset_headers = common_headers.copy()
@@ -209,6 +212,21 @@ def process_account(initData):
         print(Fore.RED + f"Login request failed with status code {response.status_code}")
 
     return remaining_seconds
+
+# Function to perform daily check-in
+def perform_check_in(token):
+    check_in_url = 'https://moon.popp.club/moon/sign/in'
+    check_in_headers = common_headers.copy()
+    check_in_headers['Authorization'] = token
+
+    # Send POST request for check-in
+    check_in_response = requests.post(check_in_url, headers=check_in_headers)
+    time.sleep(2)  # Adding a delay of 2 seconds
+
+    if check_in_response.status_code == 200:
+        print(Fore.GREEN + "Success Check-In.")
+    else:
+        print(Fore.RED + f"Check-In request failed with status code {check_in_response.status_code}")
 
 # Main execution
 print_welcome_message()
