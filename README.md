@@ -34,6 +34,7 @@ Register : https://t.me/PoPPtothemoon_bot/moon?startapp=1655874127
 - Auto Explore Planet
 - Auto Claim Reff Reward
 - Auto Task (SOON)
+- Auto Daily Check-in
 - Multi Account
 - Loop based on the account with the fastest claim time 
 
